@@ -11,7 +11,7 @@ $(document).ready(function() {
 function initializePage() {
 	console.log("Page ready");
  	// initCamera();
- 	// initMap();
+ 	initMap();
  	initGestures();
  	initRSVPForm();
 }
@@ -19,6 +19,15 @@ function initializePage() {
 // init jQuery gestures  
 function initGestures() {
 	// add gestures listener here
+	$(function(){
+		$(".judge-img").bind("labhold", tapholdHandler);
+		function tapholdHandler(event){
+			var targetIDPrefix = event.target.id;
+			console.log(targetIDPrefix + "initGest");
+			$("#"+targetIDPrefix+"-bio").show();
+		}
+	});
+
 }
 
 // init RSVP form submit listener
